@@ -1,8 +1,9 @@
+import { QuestionsService } from "./community/questions.service";
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
-import { HttpClient, HttpClientModule } from "@angular/common/http";
+import { HttpClientModule } from "@angular/common/http";
 
 import { NavBarComponent } from "./nav-bar/nav-bar.component";
 import { LogInComponent } from "./container/log-in/log-in.component";
@@ -20,6 +21,9 @@ import { CardItemComponent } from "./container/content-profile/card-item/card-it
 import { ButtonComponent } from "./container/button/button.component";
 import { RankComponent } from "./rank/rank.component";
 import { ContainerRankProfileComponent } from "./container-rank-profile/container-rank-profile.component";
+import { CommunityComponent } from "./community/community.component";
+import { AddQuestionComponent } from "./community/add-question/add-question.component";
+import { FormsModule } from "@angular/forms";
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,10 +38,18 @@ import { ContainerRankProfileComponent } from "./container-rank-profile/containe
     CardItemComponent,
     ButtonComponent,
     RankComponent,
-    ContainerRankProfileComponent
+    ContainerRankProfileComponent,
+    CommunityComponent,
+    AddQuestionComponent
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule, NgbModule],
-  providers: [],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    NgbModule,
+    FormsModule
+  ],
+  providers: [QuestionsService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
